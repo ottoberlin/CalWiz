@@ -15,6 +15,13 @@ from langchain.schema import (
     SystemMessage
 )
 
+st.set_page_config(
+    page_title='Cal Wiz'
+    page_icon='🧙'
+    layout="wide",
+    initial_sidebar_state="collapsed",
+)
+
 SKIN_DIR = './skins/'
 
 # Sidebar Skin Selector
@@ -37,8 +44,6 @@ skin_files.sort()
 
 if selected_option := st.sidebar.selectbox('Select a Skin File', skin_files, format_func=format_dropdown_label):
     execute_skin_file(selected_option)
-
-
 
 # App framework
 st.title(APP_TITLE)
