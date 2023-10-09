@@ -43,7 +43,7 @@ USING_CHATGPT_WARNING = "Be mindful, for any incantation you inscribe in the fie
 CONTENT_AI_GENERATED_WARNING = "Know this, the events you behold here were conjured by artificial intelligence deciphering your text. When traversing this realm of AI, wield caution, and validate these manifestations before trusting them. Relying solely upon these events might lead you on an unexpected journey through time and space."
 
 
-SYSTEM_PROMPT = """
+LONG_SYSTEM_PROMPT = """
 Identify any event within the user input that can be put into a calender. 
 
 Output a list of all identified events as JSON with the following keys: summary, start, end, location, description, all-day-event. Separate the events with '<NEXTEVENT>'
@@ -55,6 +55,9 @@ If a starting time is given, but no end time, assume that the events ends one ho
 Do not output anything else. Use only information provided by the user. 
 """
 
+SYSTEM_PROMPT = """
+Identify user input events as JSON: summary, start (ISO 8601 format), end (+1 hour if no end time), location, description, all-day-event ("True" if no start time, "False" if start time given). Separate with '<NEXTEVENT>'. No other output.
+"""
 
 
 
