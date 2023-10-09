@@ -18,9 +18,8 @@ CalWiz is as easy as waving your wand (well, almost). Just follow these steps:
 
 ## Quick Tips
 
-- For dates and times, use the ISO 8601 format (YYYY-MM-DDTHH:MM:SS). If you don't specify a start time, CalWiz assumes it's an all-day event. If there's a start time but no end time, it assumes the event ends one hour later.
-
-- Keep it focused! CalWiz will only use the information you provide. No need to add extra details.
+- If you don't specify a start time, CalWiz assumes it's an all-day event.
+- If there's a start time but no end time, it assumes the event ends one hour later.
 
 ## Get Started
 
