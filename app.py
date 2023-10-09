@@ -16,9 +16,9 @@ from langchain.schema import (
 )
 
 st.set_page_config(
-    page_title='Cal Wiz'
-    page_icon='🧙'
-    layout="wide",
+    page_title='CalWiz',
+    page_icon='🧙',
+    layout="centered",
     initial_sidebar_state="collapsed",
 )
 
