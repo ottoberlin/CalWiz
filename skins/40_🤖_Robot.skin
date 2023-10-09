@@ -1,0 +1,21 @@
+# robot.skin
+APP_TITLE = ':robot::memo::arrow_right::calendar: Robot Assistant'
+CHAT_AVATAR = "🤖"
+WELCOME_MESSAGE_1 = "Greetings, Time Traveler! :rocket:"
+WELCOME_MESSAGE_2 = "Welcome to the Futuristic Realm Where We Convert Text into Calendar Events 📅🤖"
+WELCOME_MESSAGE_3 = "Please Input Your Event Details, and I'll Assist You in Creating Events in Your Calendar 🤖📝"
+SAMPLE_INPUT = "Hello there! I am your helpful robot assistant. I invite you to schedule a meeting at 15:00 today to discuss our grand plans for world domination. Don't forget to include it in your calendar. Also, remember our annual robot dance party on December 31, 2023!"
+LETS_GO_BUTTON_LABEL = ":rocket: Let's Get Started"
+LETS_GO_SIMULATION_BUTTON_LABEL = ":rocket: Let's Get Started (Simulation)"
+
+# SHOW RECOGNIZED EVENTS
+IDENTIFIED_EVENTS_MESSAGE = 'Behold the Recognized Events. Review them for accuracy, and make any necessary adjustments.'
+DELETE_EVENT_BUTTON_LABEL = ":x: Remove Event"
+
+# TOGGLE BUTTON TO SWITCH BETWEEN ALL DAY EVENTS AND EVENTS WITH BEGINNING AND END TIMES
+TOGGLE_ALL_DAY_LABEL = "All Day Event"
+NEXT_DAY_HELP_MESSAGE = "All-day events extend from the start date to the day after the end date. For example, New Year's Day will be displayed as 2023-01-01 to 2023-01-02."
+
+DOWNLOAD_STARTED_MESSAGE = 'Download Initiated. Open the File with Your Preferred Calendar App or Email It to Yourself for Import on iOS Devices.'
+GENERATE_ICS_FILE = ":rocket::page_with_curl: Generate an iCal/.ics File"
+

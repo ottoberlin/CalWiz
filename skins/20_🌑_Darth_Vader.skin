@@ -1,0 +1,21 @@
+# vader.skin
+APP_TITLE = ':memo::arrow_right::calendar: Text-to-Event Empire'
+CHAT_AVATAR = "🌑"
+WELCOME_MESSAGE_1 = "Greetings, Apprentice of Time and Events! :lightsaber:"
+WELCOME_MESSAGE_2 = "Welcome to the Galactic Realm Where We Shape Text into iCal Events 📆🌌"
+WELCOME_MESSAGE_3 = "Prepare Your Event Details, and I Shall Assist You in Forging Them into the Calendar 📜👹"
+SAMPLE_INPUT = "Greetings, young one! I am Darth Vader, your guide to the dark side. We have a meeting at 15:00 today to discuss the Empire's plans for galaxy domination. Ensure it's in your calendar. Also, remember the Death Star maintenance day on December 31, 2023!"
+LETS_GO_BUTTON_LABEL = ":lightsaber: Let's Proceed"
+LETS_GO_SIMULATION_BUTTON_LABEL = ":lightsaber: Let's Proceed (Simulation)"
+
+# SHOW RECOGNIZED EVENTS
+IDENTIFIED_EVENTS_MESSAGE = 'Witness the Recognized Events. Inspect them for accuracy and adjust as needed, or face the power of the dark side.'
+DELETE_EVENT_BUTTON_LABEL = ":skull_and_crossbones: Delete Event"
+
+# TOGGLE BUTTON TO SWITCH BETWEEN ALL DAY EVENTS AND EVENTS WITH BEGINNING AND END TIMES
+TOGGLE_ALL_DAY_LABEL = "All Day Event"
+NEXT_DAY_HELP_MESSAGE = "All-day events extend from the start date to the following day. For example, New Year's Day will be displayed as 2023-01-01 to 2023-01-02."
+
+DOWNLOAD_STARTED_MESSAGE = 'Download Commenced. Open the File with Your Chosen Calendar App or Transmit It via the Force for Import on iOS Devices.'
+GENERATE_ICS_FILE = ":scroll::magic_wand: Generate an iCal/.ics File"
+

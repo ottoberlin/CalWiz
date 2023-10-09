@@ -1,0 +1,25 @@
+APP_TITLE = ':busts_in_silhouette::memo::arrow_right::calendar: Personal Assistant'
+CHAT_AVATAR = "👩‍💼"
+WELCOME_MESSAGE_1 = "Hello there, Time Traveler! :wave:"
+WELCOME_MESSAGE_2 = "Welcome to the Modern World Where We Transform Text into Calendar Events 📅👩‍💼"
+WELCOME_MESSAGE_3 = "Please Share Your Event Details, and I'll Assist You in Scheduling Them 📆👩‍💼"
+SAMPLE_INPUT = "Greetings! I am your helpful personal assistant. Let's schedule a meeting for 15:00 today to discuss your upcoming project. Make sure to add it to your calendar. Also, remember your friend's birthday on December 31, 2023!"
+LETS_GO_BUTTON_LABEL = ":wave: Let's Get Started"
+LETS_GO_SIMULATION_BUTTON_LABEL = ":wave: Let's Get Started (Simulation)"
+
+# SHOW RECOGNIZED EVENTS
+IDENTIFIED_EVENTS_MESSAGE = 'Here Are the Recognized Events. Review Them for Accuracy and Make Any Necessary Adjustments.'
+DELETE_EVENT_BUTTON_LABEL = ":x: Remove Event"
+
+# TOGGLE BUTTON TO SWITCH BETWEEN ALL DAY EVENTS AND EVENTS WITH BEGINNING AND END TIMES
+TOGGLE_ALL_DAY_LABEL = "All Day Event"
+NEXT_DAY_HELP_MESSAGE = "All-day events span from the start date to the day after the end date. For example, New Year's Day will be displayed as 2023-01-01 to 2023-01-02."
+
+DOWNLOAD_STARTED_MESSAGE = 'Download Started. Open the File with Your Preferred Calendar App or Email It to Yourself for Import on iOS Devices.'
+GENERATE_ICS_FILE = ":page_with_curl: Generate an iCal/.ics File"
+
+
+
+
+
+

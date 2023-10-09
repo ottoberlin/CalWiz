@@ -1,0 +1,22 @@
+# wizard.skin
+APP_TITLE = ':memo::arrow_right::calendar: Text-to-Event Wizard'
+CHAT_AVATAR = "🧙‍♂️"
+WELCOME_MESSAGE_1 = "Greetings, Traveler of Time and Events! :sparkles:"
+WELCOME_MESSAGE_2 = "Welcome to the Mystical Realm Where We Weave the Threads of Time into iCal Scrolls 📆✨"
+WELCOME_MESSAGE_3 = "Gather Your Human-Readable Event Scrolls and Place Them in the Mystical Field Below 📜"
+SAMPLE_INPUT = "Greetings, fellow magician! I, Chatty, extend my conjured invitation for an enchanting gathering tonight at 14:30, where we shall share a brew of mystical origins. Don't forget to bring our arcane board game to Rick's Citadel. And mark it well, our Yuletide recess spans from December 23, 2023, to January 2, 2024."
+LETS_GO_BUTTON_LABEL = ":magic_wand: Let's go"
+LETS_GO_SIMULATION_BUTTON_LABEL = ":magic_wand: Let's go (simulation)"
+
+# SHOW RECOGNIZED EVENTS
+IDENTIFIED_EVENTS_MESSAGE = 'Behold the Events that await your enchantment. Check the events to see if I recognized them correctly. Change it if necessary.'
+DELETE_EVENT_BUTTON_LABEL = ":x: delete"
+
+# TOGGLE BUTTON TO SWITCH BETWEEN ALL DAY EVENTS AND EVENTS WITH AN BEGINNING AND AN END TIME
+TOGGLE_ALL_DAY_LABEL = "All Day Magic"
+NEXT_DAY_HELP_MESSAGE = "In the mystical realm, all-day events conclude at the beginning of the date given as the end date. For example, New Year's Day will be displayed as 2023-01-01 to 2023-01-02."
+
+DOWNLOAD_STARTED_MESSAGE = 'The download incantation has begun. Open the file with your favored Calendar spell. Or dispatch this file to yourself via mystical post to import it on iOS-Devices.'
+GENERATE_ICS_FILE = ":scroll: As you command, create an iCal/.ics-File"
+
+
