@@ -15,40 +15,35 @@ from langchain.schema import (
     SystemMessage
 )
 
-st.set_page_config(
-    page_title='CalWiz',
-    page_icon='🧙',
-    layout="centered",
-    initial_sidebar_state="collapsed",
-)
 
-SKIN_DIR = './skins/'
+APP_NAME = 'Your Friendly Calendar Wizard'
+APP_SHORT_NAME = 'CalWiz'
+CHAT_AVATAR = "🧙"
+APP_TITLE = CHAT_AVATAR + APP_NAME
+WELCOME_MESSAGE_1 = "Greetings, Traveler of Time and Events! :sparkles:"
+WELCOME_MESSAGE_2 = "Welcome to the Mystical Realm Where We Weave the Threads of Time into iCal Scrolls 📆✨"
+WELCOME_MESSAGE_3 = "Gather Your Human-Readable Event Scrolls and Place Them in the Mystical Field Below 📜"
+SAMPLE_INPUT = "Greetings, fellow magician! I, Chatty, extend my conjured invitation for an enchanting gathering tonight at 14:30, where we shall share a brew of mystical origins. Don't forget to bring our arcane board game to Rick's Citadel. And mark it well, our Yuletide recess spans from December 23, 2023, to January 2, 2024."
+LETS_GO_BUTTON_LABEL = ":magic_wand: Let's go"
+LETS_GO_SIMULATION_BUTTON_LABEL = ":magic_wand: Let's go (simulation)"
 
-# Sidebar Skin Selector
+# SHOW RECOGNIZED EVENTS
+IDENTIFIED_EVENTS_MESSAGE = 'Behold the Events that await your enchantment. Check the events to see if I recognized them correctly. Change it if necessary.'
+DELETE_EVENT_BUTTON_LABEL = ":x: delete"
 
-def format_dropdown_label(string):
-    # 40_📜_Mighty_Wizard.skin => 📜 Mighty Wizard
-    nr,icon,*avatar = string.split(".")[0].split("_")
-    return f"{icon} {' '.join(avatar)}"
+# TOGGLE BUTTON TO SWITCH BETWEEN ALL DAY EVENTS AND EVENTS WITH AN BEGINNING AND AN END TIME
+TOGGLE_ALL_DAY_LABEL = "All Day Magic"
+NEXT_DAY_HELP_MESSAGE = "In the mystical realm, all-day events conclude at the beginning of the date given as the end date. For example, New Year's Day will be displayed as 2023-01-01 to 2023-01-02."
 
-# Function to execute a skin file directly
-def execute_skin_file(skin_file_path):
-    with open(SKIN_DIR + skin_file_path, "r") as skin_file:
-        exec(skin_file.read(), globals())
-    
-# Get a list of all .skin files in the SKIN_DIR directory
-skin_files = [file for file in listdir(SKIN_DIR) if file.endswith(".skin")]
+DOWNLOAD_STARTED_MESSAGE = 'The download incantation has begun. Open the file with your favored Calendar spell. Or dispatch this file to yourself via mystical post to import it on iOS-Devices.'
+GENERATE_ICS_FILE = ":scroll: As you command, create an iCal/.ics-File"
 
-# Sort by the trailing number
-skin_files.sort()
+USING_CHATGPT_WARNING = "Be mindful, for any incantation you inscribe in the field above shall journey to OpenAI's GPT-3.5 API, a realm of magical computation. Reflect on your input, especially if it contains personally identifiable information."
 
-if selected_option := st.sidebar.selectbox('Select a Skin File', skin_files, format_func=format_dropdown_label):
-    execute_skin_file(selected_option)
+CONTENT_AI_GENERATED_WARNING = "Know this, the events you behold here were conjured by artificial intelligence deciphering your text. When traversing this realm of AI, wield caution, and validate these manifestations before trusting them. Relying solely upon these events might lead you on an unexpected journey through time and space."
 
-# App framework
-st.title(APP_TITLE)
 
-system = """
+SYSTEM_PROMPT = """
 Identify any event within the user input that can be put into a calender. 
 
 Output a list of all identified events as JSON with the following keys: summary, start, end, location, description, all-day-event. Separate the events with '<NEXTEVENT>'
@@ -59,6 +54,20 @@ If a starting time is given, but no end time, assume that the events ends one ho
 
 Do not output anything else. Use only information provided by the user. 
 """
+
+
+
+
+st.set_page_config(
+    page_title=APP_SHORT_NAME,
+    page_icon=":magic_wand:",
+    layout="centered",
+    initial_sidebar_state="collapsed",
+)
+
+
+# App framework
+st.title(APP_TITLE)
 
 if 'result_list' not in st.session_state:
     st.session_state.result_list = None
@@ -75,15 +84,15 @@ def simulate_typing(target_object, string, flag):
 
 with st.chat_message(CHAT_AVATAR):
     message_placeholder = st.empty()
-    simulate_typing(message_placeholder,WELCOME_MESSAGE_1, 'greeted')
-    message_placeholder = st.empty()
     simulate_typing(message_placeholder, WELCOME_MESSAGE_2, 'greeted')
     message_placeholder = st.empty()
     simulate_typing(message_placeholder, WELCOME_MESSAGE_3, 'greeted')
-    prompt = st.text_area(' ', value=SAMPLE_INPUT)
+    prompt = st.text_area('paste your text here', value=SAMPLE_INPUT)
     st.session_state.greeted = 'Yes'
+    st.info(USING_CHATGPT_WARNING, icon="ℹ️")
 
 result = None
+
 
 if st.button(LETS_GO_BUTTON_LABEL):
     if prompt != SAMPLE_INPUT:
@@ -92,7 +101,7 @@ if st.button(LETS_GO_BUTTON_LABEL):
         chat = ChatOpenAI(temperature=0, model_name='gpt-3.5-turbo')
 
         messages = [
-        SystemMessage(content=system),
+        SystemMessage(content=SYSTEM_PROMPT),
         HumanMessage(content=prompt)
         ]
 
@@ -129,8 +138,11 @@ if result:
                 event["end"] = datetime.fromisoformat(event["end"])
 
             if isinstance(event["all-day-event"], str):
-                event["all-day-event"] = True if event["all-day-event"] == 'True' else False
-                event["end"] = event["end"] + timedelta(days=1)
+                if event["all-day-event"] == 'True': 
+                    event["all-day-event"] = True 
+                    event["end"] = event["end"] + timedelta(days=1)
+                else:
+                    event["all-day-event"] = False
 
 
     except Exception as e:
@@ -180,7 +192,7 @@ if st.session_state.result_list: # Wenn nicht None oder leer, also = []
                 second_row.time_input(" ", event["end"], disabled=event["all-day-event"], key="end-time-"+str(count))
                 )
 
-            event["description"] = st.text_input('Notes', value=event["description"])
+            event["description"] = st.text_input('Notes', value=event["description"], key="description-"+str(count))
 
             ics_file_data += (
                  f'BEGIN:VEVENT\n'
@@ -222,3 +234,5 @@ if st.session_state.result_list: # Wenn nicht None oder leer, also = []
         with st.chat_message(CHAT_AVATAR):
             message_placeholder = st.empty()
             simulate_typing(message_placeholder, DOWNLOAD_STARTED_MESSAGE, 'finished') 
+
+    st.info(CONTENT_AI_GENERATED_WARNING , icon="ℹ️")
